@@ -31,6 +31,8 @@ def main(path):
 
     for header, items in envelopes(path):
         source = header.get("__spotlight_inferred_source", "?")
+        if source not in ("browser", "server"):
+            continue  # other apps posting to the same Spotlight sidecar
         for item_header, payload in items:
             kind = item_header.get("type")
             counts[(source, kind)] += 1

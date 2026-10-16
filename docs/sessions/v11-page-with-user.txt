@@ -1,0 +1,27 @@
+## Envelope items (source, type) -> count
+- browser attachment   1
+- browser event        1
+- browser log          4
+- browser session      4
+- browser span         4
+- browser trace_metric 14
+- server  log          7
+- server  profile      2
+- server  sessions     3
+- server  transaction  7
+
+## Browser sessions (in send order)
+- sid=41332916 init=True status=unhandled errors=1 did=mpn@example.com release=empower-local-react@1.0.0
+- sid=41332916 init=False status=unhandled errors=1 did=mpn@example.com release=empower-local-react@1.0.0
+- sid=1fa9e085 init=True status=ok errors=0 did=jid@example.com release=empower-local-react@1.0.0
+- sid=bb42525c init=True status=ok errors=0 did=gjj@example.com release=empower-local-react@1.0.0
+distinct session ids: 3
+
+## Browser transactions (static lifecycle)
+
+## Streamed spans (stream lifecycle)
+total streamed spans: 98, segment spans: 4
+- pageload     '/products'                  trace=8c575f1c attrs=['api', 'backendType', 'browser.navigation.type', 'browser.performance.navigation.activation_start', 'browser.performance.time_origin', 'browser.web_vital.fp.value', 'browser.web_vital.ttfb.request_time', 'browser.web_vital.ttfb.value', 'culture.calendar', 'culture.locale', 'culture.timezone', 'customerType', 'device.memory.estimated_capacity', 'device.processor_count', 'frontendSlowdown', 'memory.heap_limit_bytes', 'memory.heap_used_bytes', 'memory.heap_used_mb', 'memory.sample_phase', 'memory.session_elapsed_ms', 'network.connection.effective_type', 'network.connection.rtt', 'react.version', 'state.type', 'url.full', 'url.path', 'url.template', 'user.email', 'user_agent.original']
+- pageload     'Pageload'                   trace=de462b34 attrs=['api', 'backendType', 'browser.navigation.type', 'browser.performance.navigation.activation_start', 'browser.performance.time_origin', 'browser.web_vital.ttfb.request_time', 'browser.web_vital.ttfb.value', 'culture.calendar', 'culture.locale', 'culture.timezone', 'customerType', 'device.memory.estimated_capacity', 'device.processor_count', 'frontendSlowdown', 'memory.heap_limit_bytes', 'memory.heap_used_bytes', 'memory.heap_used_mb', 'memory.sample_phase', 'memory.session_elapsed_ms', 'network.connection.effective_type', 'network.connection.rtt', 'react.version', 'state.type', 'url.full', 'url.path', 'user.email', 'user_agent.original']
+- pageload     '/about'                     trace=60b4d508 attrs=['api', 'backendType', 'browser.navigation.type', 'browser.performance.navigation.activation_start', 'browser.performance.time_origin', 'browser.web_vital.ttfb.request_time', 'browser.web_vital.ttfb.value', 'culture.calendar', 'culture.locale', 'culture.timezone', 'customerType', 'device.memory.estimated_capacity', 'device.processor_count', 'frontendSlowdown', 'memory.heap_limit_bytes', 'memory.heap_used_bytes', 'memory.heap_used_mb', 'memory.sample_phase', 'memory.session_elapsed_ms', 'network.connection.effective_type', 'network.connection.rtt', 'react.version', 'state.type', 'url.full', 'url.path', 'url.template', 'user.email', 'user_agent.original']
+- pageload     '/products'                  trace=9d22eaeb attrs=['api', 'backendType', 'browser.navigation.type', 'browser.performance.navigation.activation_start', 'browser.performance.time_origin', 'browser.web_vital.ttfb.request_time', 'browser.web_vital.ttfb.value', 'culture.calendar', 'culture.locale', 'culture.timezone', 'customerType', 'device.memory.estimated_capacity', 'device.processor_count', 'frontendSlowdown', 'memory.heap_limit_bytes', 'memory.heap_used_bytes', 'memory.heap_used_mb', 'memory.sample_phase', 'memory.session_elapsed_ms', 'network.connection.effective_type', 'network.connection.rtt', 'react.version', 'state.type', 'url.full', 'url.path', 'url.template', 'user.email', 'user_agent.original']

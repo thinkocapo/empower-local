@@ -3,12 +3,11 @@
 - browser event        1
 - browser log          6
 - browser session      13
-- browser trace_metric 11
+- browser trace_metric 16
 - browser transaction  13
-- mobile  transaction  1
 - server  log          8
 - server  profile      3
-- server  sessions     1
+- server  sessions     3
 - server  trace_metric 1
 - server  transaction  12
 

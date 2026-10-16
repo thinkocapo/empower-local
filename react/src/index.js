@@ -77,8 +77,8 @@ Sentry.init({
   profilesSampleRate: 1.0,
   replaysSessionSampleRate: 1.0,
   debug: true,
-  enableLogs: true,
-  enableMetrics: true, // required for Sentry.metrics.* -- see utils/memoryMetrics.js
+  // SDK v11: no enableLogs/enableMetrics. Logs are captured by
+  // consoleLoggingIntegration below, metrics by Sentry.metrics.* (utils/memoryMetrics.js).
   beforeSendLog: (log) => {
     const tags = Sentry.getIsolationScope().getScopeData().tags;
     if ('user.email' in tags) {
@@ -114,7 +114,7 @@ Sentry.init({
     }),
     // Release Health sessions. 'page' = one session per page load; client-side
     // route changes keep the same session ('route' starts a new one per navigation).
-    // 'page' is the default from SDK v11 on.
+    // 'page' is the SDK v11 default; set explicitly so the demo shows the option.
     Sentry.browserSessionIntegration({ lifecycle: 'page' }),
     Sentry.consoleLoggingIntegration(), // All console logs are sent to Sentry
     Sentry.elementTimingIntegration(),
@@ -294,12 +294,20 @@ class App extends Component {
           .join('') + '@example.com';
     }
     currentScope.setUser({ email: email });
+    // Release Health sessions read the user from the isolation scope; without
+    // this the 'page' session has no user and Crash Free Users stays empty.
+    Sentry.setUser({ email: email });
 
     let errorBoundary = queryParams.get('error_boundary');
     if (errorBoundary) {
       ERROR_BOUNDARY = errorBoundary;
       currentScope.setTag('error_boundary', errorBoundary);
     }
+
+    // SDK v11 streams spans, and streamed spans only carry attributes, not scope
+    // tags. Tags stay for errors and for the fetch headers below; mirror them as
+    // attributes so pageload/navigation/http spans are still searchable by them.
+    currentScope.setAttributes(currentScope.getScopeData().tags);
 
     // Automatically append `se`, `customerType` and `userEmail` query params to all requests
     // (except for requests to Sentry)
