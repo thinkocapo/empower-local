@@ -1,0 +1,47 @@
+## Envelope items (source, type) -> count
+- browser attachment   1
+- browser event        1
+- browser log          6
+- browser session      13
+- browser trace_metric 11
+- browser transaction  13
+- mobile  transaction  1
+- server  log          8
+- server  profile      3
+- server  sessions     1
+- server  trace_metric 1
+- server  transaction  12
+
+## Browser sessions (in send order)
+- sid=c4904970 init=False status=exited errors=0 did=None release=empower-local-react@1.0.0
+- sid=8774a347 init=True status=ok errors=0 did=foy@example.com release=empower-local-react@1.0.0
+- sid=8774a347 init=False status=exited errors=0 did=foy@example.com release=empower-local-react@1.0.0
+- sid=cebeaa55 init=True status=ok errors=0 did=foy@example.com release=empower-local-react@1.0.0
+- sid=cebeaa55 init=False status=exited errors=0 did=foy@example.com release=empower-local-react@1.0.0
+- sid=2d30f194 init=True status=ok errors=0 did=foy@example.com release=empower-local-react@1.0.0
+- sid=2d30f194 init=False status=exited errors=0 did=foy@example.com release=empower-local-react@1.0.0
+- sid=1af1be73 init=True status=ok errors=0 did=foy@example.com release=empower-local-react@1.0.0
+- sid=1af1be73 init=False status=exited errors=0 did=foy@example.com release=empower-local-react@1.0.0
+- sid=383045b8 init=True status=ok errors=0 did=foy@example.com release=empower-local-react@1.0.0
+- sid=383045b8 init=False status=exited errors=0 did=foy@example.com release=empower-local-react@1.0.0
+- sid=333a1d9c init=True status=ok errors=0 did=foy@example.com release=empower-local-react@1.0.0
+- sid=3a1d127b init=False status=crashed errors=1 did=None release=empower-local-react@1.0.0
+distinct session ids: 8
+
+## Browser transactions (static lifecycle)
+- pageload     '/'                          spans=18 trace=2c6091af tags=['api', 'backendType', 'customerType', 'frontendSlowdown', 'replayId']
+- navigation   '/products'                  spans=0 trace=5065742f tags=['api', 'backendType', 'customerType', 'frontendSlowdown', 'replayId']
+-              'Fetch Products'             spans=5 trace=2c6091af tags=['api', 'backendType', 'customerType', 'frontendSlowdown', 'replayId']
+- navigation   '/about'                     spans=0 trace=bf1bffa4 tags=['api', 'backendType', 'customerType', 'frontendSlowdown', 'replayId']
+- navigation   '/products'                  spans=0 trace=154b4dbb tags=['api', 'backendType', 'customerType', 'frontendSlowdown', 'replayId']
+-              'Fetch Products'             spans=5 trace=bf1bffa4 tags=['api', 'backendType', 'customerType', 'frontendSlowdown', 'replayId']
+- function     'items_added_to_cart'        spans=0 trace=bf1bffa4 tags=['api', 'backendType', 'customerType', 'frontendSlowdown', 'replayId']
+- navigation   '/cart'                      spans=0 trace=0f7e0d5a tags=['api', 'backendType', 'customerType', 'frontendSlowdown', 'replayId']
+- navigation   '/checkout-form'             spans=0 trace=a1efc8fa tags=['api', 'backendType', 'customerType', 'frontendSlowdown', 'replayId']
+-              'checkout_submit'            spans=2 trace=a1efc8fa tags=['api', 'backendType', 'customerType', 'frontendSlowdown', 'replayId']
+- navigation   '/complete'                  spans=0 trace=d922a98e tags=['api', 'backendType', 'customerType', 'frontendSlowdown', 'replayId']
+- pageload     '/'                          spans=14 trace=86eec6d7 tags=['api', 'backendType', 'customerType', 'frontendSlowdown', 'replayId']
+- pageload     '/about'                     spans=26 trace=0f512d61 tags=['api', 'backendType', 'customerType', 'frontendSlowdown', 'replayId']
+
+## Streamed spans (stream lifecycle)
+total streamed spans: 0, segment spans: 0

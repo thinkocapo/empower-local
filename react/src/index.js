@@ -112,6 +112,10 @@ Sentry.init({
       networkDetailAllowUrls: [/.*/],
       unmask: ['.sentry-unmask'],
     }),
+    // Release Health sessions. 'page' = one session per page load; client-side
+    // route changes keep the same session ('route' starts a new one per navigation).
+    // 'page' is the default from SDK v11 on.
+    Sentry.browserSessionIntegration({ lifecycle: 'page' }),
     Sentry.consoleLoggingIntegration(), // All console logs are sent to Sentry
     Sentry.elementTimingIntegration(),
     // Only added in Spotlight mode. Forwards every envelope to the local

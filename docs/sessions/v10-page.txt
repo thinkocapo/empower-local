@@ -1,0 +1,34 @@
+## Envelope items (source, type) -> count
+- browser attachment   1
+- browser event        1
+- browser log          6
+- browser session      1
+- browser trace_metric 18
+- browser transaction  13
+- server  log          8
+- server  profile      3
+- server  sessions     4
+- server  trace_metric 1
+- server  transaction  12
+
+## Browser sessions (in send order)
+- sid=e7e70195 init=False status=crashed errors=1 did=None release=empower-local-react@1.0.0
+distinct session ids: 1
+
+## Browser transactions (static lifecycle)
+- pageload     '/'                          spans=18 trace=6c9ca7ca tags=['api', 'backendType', 'customerType', 'frontendSlowdown', 'replayId']
+- navigation   '/products'                  spans=2 trace=678c6a06 tags=['api', 'backendType', 'customerType', 'frontendSlowdown', 'replayId']
+-              'Fetch Products'             spans=5 trace=6c9ca7ca tags=['api', 'backendType', 'customerType', 'frontendSlowdown', 'replayId']
+- navigation   '/about'                     spans=0 trace=bf71a944 tags=['api', 'backendType', 'customerType', 'frontendSlowdown', 'replayId']
+- navigation   '/products'                  spans=0 trace=d8f2b1a7 tags=['api', 'backendType', 'customerType', 'frontendSlowdown', 'replayId']
+-              'Fetch Products'             spans=5 trace=bf71a944 tags=['api', 'backendType', 'customerType', 'frontendSlowdown', 'replayId']
+- function     'items_added_to_cart'        spans=0 trace=bf71a944 tags=['api', 'backendType', 'customerType', 'frontendSlowdown', 'replayId']
+- navigation   '/cart'                      spans=0 trace=d8afba0b tags=['api', 'backendType', 'customerType', 'frontendSlowdown', 'replayId']
+- navigation   '/checkout-form'             spans=0 trace=86acef0c tags=['api', 'backendType', 'customerType', 'frontendSlowdown', 'replayId']
+-              'checkout_submit'            spans=2 trace=86acef0c tags=['api', 'backendType', 'customerType', 'frontendSlowdown', 'replayId']
+- navigation   '/complete'                  spans=0 trace=541a34d7 tags=['api', 'backendType', 'customerType', 'frontendSlowdown', 'replayId']
+- pageload     '/'                          spans=12 trace=8e449e7d tags=['api', 'backendType', 'customerType', 'frontendSlowdown', 'replayId']
+- pageload     '/about'                     spans=24 trace=017f6e02 tags=['api', 'backendType', 'customerType', 'frontendSlowdown', 'replayId']
+
+## Streamed spans (stream lifecycle)
+total streamed spans: 0, segment spans: 0
