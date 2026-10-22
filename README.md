@@ -11,6 +11,17 @@ There are **no** cloud databases, no Redis, no Celery, no Statsig, no Google
 Cloud, and no other third-party services. Everything the backend needs is
 mocked in-process.
 
+Empower Local is a standalone offshoot of the team's Empower Plant demo, meant
+for local use and customer hand-offs.
+
+Think of it as a **training ground for highly experimental Sentry implementation
+ideas** — things that aren't a proven fit for the original
+[Empower Plant](https://github.com/sentry-demos/empower) yet, that you wouldn't
+want to push into that shared demo, but that you also don't want to babysit as
+long-lived forks or branches. Prototype here (custom browser profiling, new
+metrics, novel instrumentation), and graduate whatever earns its place back
+upstream.
+
 The payoff — a real distributed trace in Sentry, from the React pageload all the
 way into Flask's (mocked) database queries, in a single waterfall:
 
@@ -249,49 +260,3 @@ endpoints (for the resource-timing demo), and browser JS-heap metrics
 - Codecov
 - The other language backends (Express, Go, Spring Boot, Laravel, ASP.NET, …) —
   only Flask remains
-
----
-
-## Configuration reference
-
-Everything lives in `.env` (see [`.env.template`](.env.template) for the full
-list with comments). In normal [Run](#run) mode the only **required** values are
-`REACT_APP_DSN` and `FLASK_DSN`; everything else has a working default. In
-[Spotlight mode](#spotlight-mode--run-with-no-sentryio-account) even those are
-optional — leave them blank.
-
----
-
-## Project layout
-
-```
-empower-local/
-├── docker-compose.yaml     # orchestrates the two services
-├── .env.template           # copy to .env, add your DSNs
-├── react/                  # React 17 storefront (create-react-app)
-│   ├── src/
-│   ├── public/product-images/
-│   ├── config-overrides.js # conditional Sentry source-map upload
-│   └── Dockerfile
-└── flask/                  # Flask API
-    ├── src/
-    │   ├── main.py         # routes + Sentry init + CORS
-    │   ├── db.py           # MOCKED queries (static JSON, op=function spans)
-    │   └── utils.py
-    └── Dockerfile
-```
-
----
-
-## Note
-
-Empower Local is a standalone offshoot of the team's Empower Plant demo, meant
-for local use and customer hand-offs.
-
-Think of it as a **training ground for highly experimental Sentry implementation
-ideas** — things that aren't a proven fit for the original
-[Empower Plant](https://github.com/sentry-demos/empower) yet, that you wouldn't
-want to push into that shared demo, but that you also don't want to babysit as
-long-lived forks or branches. Prototype here (custom browser profiling, new
-metrics, novel instrumentation), and graduate whatever earns its place back
-upstream.
